@@ -18,7 +18,7 @@ Let say we want to dispose the CompositeDisposable when the activity is being pa
 class MainActivity : LifecycleActivity() {
 
     // create a LifecycleCompositeDisposable which will be disposed at onPause()
-    val disposableBag by lazy { createOnPauseCompositeDisposable() }
+    val disposableBag = createOnPauseCompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
