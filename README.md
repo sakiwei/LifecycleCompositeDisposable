@@ -25,7 +25,7 @@ class MainActivity : LifecycleActivity() {
         setContentView(R.layout.activity_main)
 
         // keep firing a number on each second,
-        // until LifecycleActivity.onStop() is triggered
+        // until LifecycleActivity.onPause() is triggered
         Observable.interval(1000, TimeUnit.MILLISECONDS)
                 .doOnDispose {
                     Log.d(TAG, "Disposed!")
