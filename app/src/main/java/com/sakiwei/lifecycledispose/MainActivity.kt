@@ -2,15 +2,14 @@ package com.sakiwei.lifecycledispose
 
 import android.arch.lifecycle.LifecycleActivity
 import android.os.Bundle
-import com.orhanobut.logger.Logger
+import android.util.Log
 import io.reactivex.Observable
 import java.util.concurrent.TimeUnit
 
-typealias L = Logger
-
 class MainActivity : LifecycleActivity() {
 
-    // create a LifecycleCompositeDisposable which will be disposed at onStop()
+    val TAG = "MainActivity"
+    // create a LifecycleCompositeDisposable which will be disposed at onPause()
     val disposableBag by lazy { createOnPauseCompositeDisposable() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,10 +20,10 @@ class MainActivity : LifecycleActivity() {
         // until LifecycleActivity.onStop() is triggered
         Observable.interval(1000, TimeUnit.MILLISECONDS)
                 .doOnDispose {
-                    L.d("doOnDispose")
+                    Log.d(TAG, "Disposed!")
                 }
                 .subscribe {
-                    L.d(it)
+                    Log.d(TAG, it.toString())
                 }
                 // remember to add the disposable to the CompositeDisposable
                 .addTo(disposableBag)
