@@ -2,6 +2,7 @@ package com.sakiwei.lifecycledispose
 
 import android.arch.lifecycle.Lifecycle
 import android.arch.lifecycle.LifecycleActivity
+import android.arch.lifecycle.LifecycleFragment
 import io.reactivex.disposables.Disposable
 
 /**
@@ -36,4 +37,22 @@ fun LifecycleActivity.createOnStopCompositeDisposable()
  * Create a LifecycleCompositeDisposable triggered by lifecycle ON_PAUSE event
  */
 fun LifecycleActivity.createOnPauseCompositeDisposable()
+        = LifecycleCompositeDisposable(Lifecycle.Event.ON_PAUSE, lifecycle)
+
+/**
+ * Create a LifecycleCompositeDisposable triggered by lifecycle ON_DESTROY event
+ */
+fun LifecycleFragment.createOnDestroyCompositeDisposable()
+        = LifecycleCompositeDisposable(Lifecycle.Event.ON_DESTROY, lifecycle)
+
+/**
+ * Create a LifecycleCompositeDisposable triggered by lifecycle ON_STOP event
+ */
+fun LifecycleFragment.createOnStopCompositeDisposable()
+        = LifecycleCompositeDisposable(Lifecycle.Event.ON_STOP, lifecycle)
+
+/**
+ * Create a LifecycleCompositeDisposable triggered by lifecycle ON_PAUSE event
+ */
+fun LifecycleFragment.createOnPauseCompositeDisposable()
         = LifecycleCompositeDisposable(Lifecycle.Event.ON_PAUSE, lifecycle)
