@@ -8,7 +8,7 @@ Make RxJava's [CompositeDisposable](http://reactivex.io/RxJava/2.x/javadoc/io/re
 
 When we work with RxJava, we always need to add all the disposables to a [CompositeDisposable](http://reactivex.io/RxJava/2.x/javadoc/io/reactivex/disposables/CompositeDisposable.html) and you need a extra step to dispose it in `onPause()`, `onStop()` or `onDestroy()` of the activity and fragment.
 
-When [Android Lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle.html) component is released by Android team, I have an idea that why don't we bind the lifecycle event with the CompositeDisposable. So, I make a demotration on how we could make any CompositeDisposable or even Disposable dispose according to Android Lifecycle events.
+When [Android Lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle.html) component is released by Android team, I have an idea that why don't we bind the lifecycle events with the CompositeDisposable. That's why I make a demonstration on how we could make any CompositeDisposable or even Disposable dispose according to Android Lifecycle events.
 
 ### Usage
 
